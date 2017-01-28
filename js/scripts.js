@@ -24,7 +24,9 @@ var students = [
         name: 'James W.'
     }
 ]
-
-var rand = students[Math.floor(Math.random() * students.length)];
-var selectedStudent = document.getElementById('selectedStudent');
-setTimeout(function() {selectedStudent.textContent = rand.name;}, 1000);
+function selectStudent() {
+    var rand = students[Math.floor(Math.random() * students.length)];
+    var selectedStudent = document.getElementById('selectedStudent');
+    selectedStudent.textContent = 'Selecting human sacrifice...';
+    setTimeout(function() {selectedStudent.textContent = rand.name;}, 1000);
+}

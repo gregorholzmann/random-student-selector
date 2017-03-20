@@ -25,9 +25,7 @@ var students = [
     }
 ]
 
-if(!studentsClone) {
-	var studentsClone = students.slice();
-}
+var studentsClone = students.slice();
 
 function selectStudent() {
     var selectedStudent = document.getElementById('selectedStudent');

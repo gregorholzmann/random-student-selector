@@ -24,9 +24,21 @@ var students = [
         name: 'James W.'
     }
 ]
+
+if(!studentsClone) {
+	var studentsClone = students.slice();
+}
+
 function selectStudent() {
-    var rand = students[Math.floor(Math.random() * students.length)];
     var selectedStudent = document.getElementById('selectedStudent');
-    selectedStudent.textContent = 'Selecting human sacrifice...';
-    setTimeout(function() {selectedStudent.textContent = rand.name;}, 1000);
+    if (studentsClone.length <= 0) {
+        selectedStudent.textContent = 'That\'s everyone! Let\'s start over!';
+		studentsClone = students.slice();
+    } else {
+        var randIndex = Math.floor(Math.random() * studentsClone.length);
+        var rand = studentsClone[randIndex];
+        studentsClone.splice(randIndex, 1);
+        selectedStudent.textContent = 'Selecting human sacrifice...';
+        setTimeout(function() {selectedStudent.textContent = rand.name;}, 1000);
+    }
 }
